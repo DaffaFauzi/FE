@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@source "../index.html";
+@source "./**/*.{js,jsx,ts,tsx}";
+
+@theme {
+  --color-primary: #7C3AED;
+  --color-primary-700: #6D28D9;
+  --color-primary-800: #5B21B6;
+  --color-primary-900: #4C1D95;
+  --color-bg: #F5F7FB;
+  --color-text: #1F2937;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+}
+
+@layer base {
+  html, body { @apply bg-[var(--color-bg)] text-[var(--color-text)] antialiased; }
+}
