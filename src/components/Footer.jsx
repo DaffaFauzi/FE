@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="bg-[#5B21B6] text-white">
@@ -12,13 +14,36 @@ export default function Footer() {
           </p>
         </div>
 
-        <FooterCol title="Services" items={["Journal Publishing", "Peer Review", "Editorial Support", "Research Analytics"]} />
-        <FooterCol title="Resources" items={["Author Guidelines", "Reviewer Handbook", "Publication Ethics", "FAQ"]} />
-        <FooterCol title="Contact" items={["support@academiapress.com", "+1 (555) 123-4567", "123 Academic St, Research City"]} />
+        <FooterCol 
+            title="Services" 
+            items={[
+                {label: "Journal Publishing", path: "/browse"},
+                {label: "Peer Review", path: "#"},
+                {label: "Editorial Support", path: "#"},
+                {label: "Research Analytics", path: "#"}
+            ]} 
+        />
+        <FooterCol 
+            title="Resources" 
+            items={[
+                {label: "Author Guidelines", path: "/submit"},
+                {label: "Reviewer Handbook", path: "#"},
+                {label: "Publication Ethics", path: "/about"},
+                {label: "FAQ", path: "#"}
+            ]} 
+        />
+        <FooterCol 
+            title="Contact" 
+            items={[
+                "support@academiapress.com", 
+                "+1 (555) 123-4567", 
+                "123 Academic St, Research City"
+            ]} 
+        />
       </div>
 
       <div className="text-center text-sm py-4 text-white/80">
-        © 2024 AcademiaPress. All rights reserved. | Privacy Policy | Terms of Service
+        © 2024 AcademiaPress. All rights reserved. | <Link to="#" className="hover:text-white">Privacy Policy</Link> | <Link to="#" className="hover:text-white">Terms of Service</Link>
       </div>
     </footer>
   )
@@ -28,8 +53,16 @@ function FooterCol({ title, items }) {
   return (
     <div>
       <div className="font-semibold mb-3">{title}</div>
-      {items.map((i) => (
-        <div key={i} className="text-sm text-white/80 mb-2">{i}</div>
+      {items.map((item, index) => (
+        <div key={index} className="text-sm text-white/80 mb-2">
+            {typeof item === 'string' ? (
+                item
+            ) : (
+                <Link to={item.path} className="hover:text-white transition-colors">
+                    {item.label}
+                </Link>
+            )}
+        </div>
       ))}
     </div>
   )

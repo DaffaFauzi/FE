@@ -27,14 +27,14 @@ export default function Home() {
 
             <div className="flex gap-4 mb-10">
               <Link
-                to="#"
+                to="/submit"
                 className="px-6 py-3 bg-white text-[#5B21B6] rounded-lg text-sm font-semibold"
               >
                 Submit Your Paper
               </Link>
-              <button className="px-6 py-3 border border-white/40 rounded-lg text-sm font-semibold">
+              <Link to="/browse" className="px-6 py-3 border border-white/40 rounded-lg text-sm font-semibold text-white hover:bg-white/10 transition-colors">
                 Browse Journals
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -128,12 +128,12 @@ export default function Home() {
           Join the global community of researchers and make your mark in the academic world
         </p>
         <div className="flex justify-center gap-4">
-          <button className="px-6 py-3 bg-[#5B21B6] text-white rounded-lg text-sm font-semibold">
+          <Link to="/register" className="px-6 py-3 bg-[#5B21B6] text-white rounded-lg text-sm font-semibold">
             Start Your Submission
-          </button>
-          <button className="px-6 py-3 border border-[#5B21B6] text-[#5B21B6] rounded-lg text-sm font-semibold">
+          </Link>
+          <Link to="/about" className="px-6 py-3 border border-[#5B21B6] text-[#5B21B6] rounded-lg text-sm font-semibold">
             Learn More
-          </button>
+          </Link>
         </div>
       </section>
 
